@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>I Love You Sayang ❤️</title>
+  <style>
+    * { box-sizing: border-box; }
+    :root {
+      --bg1: #ff7395;
+      --bg2: #ffb6c1;
+      --ink: #2b2b2b;
+      --ink-soft: #ffffffcc;
+      --shadow: 0 10px 30px rgba(0,0,0,.15);
+      --radius: 22px;
+    }
+    body {
+      margin: 0;
+      font-family: ui-rounded, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--ink);
+      background: linear-gradient(135deg, var(--bg1), var(--bg2));
+      overflow-x: hidden;
+    }
+    .hearts { position: fixed; inset: 0; pointer-events: none; overflow: hidden; }
+    .heart { position: absolute; opacity: .25; animation: floatUp linear infinite; }
+    @keyframes floatUp {
+      from { transform: translateY(20vh) scale(.8) rotate(0deg); opacity: 0; }
+      10% { opacity: .25; }
+      to { transform: translateY(-120vh) scale(1.4) rotate(360deg); opacity: 0; }
+    }
+    .heart::before, .heart::after {
+      content: ""; position: absolute; width: 12px; height: 20px; background: #fff; border-radius: 12px 12px 0 0;
+      transform-origin: bottom center;
+    }
+    .heart::before { left: -6px; transform: rotate(-45deg); }
+    .heart::after  { left: 6px;  transform: rotate(45deg); }
+
+    .wrap { min-height: 100%; display: grid; place-items: center; padding: clamp(16px, 4vw, 40px); }
+    .card {
+      width: min(1050px, 95vw); background: rgba(255,255,255,.85); backdrop-filter: blur(7px);
+      border-radius: var(--radius); box-shadow: var(--shadow);
+      display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(16px, 3vw, 28px);
+      padding: clamp(18px, 3.5vw, 28px);
+    }
+    @media (max-width: 860px) { .card { grid-template-columns: 1fr; } }
+
+    .photo-area { display: grid; place-items: center; padding: clamp(8px, 2vw, 12px); }
+    .photo { width: min(430px, 80vw); aspect-ratio: 1 / 1; display: block; }
+    .photo svg { width: 100%; height: 100%; display: block; }
+    .frame { filter: drop-shadow(0 8px 18px rgba(0,0,0,.18)); }
+
+    .content { align-self: center; }
+    .kicker { letter-spacing: .2em; text-transform: uppercase; font-size: .8rem; opacity: .7; margin-bottom: .25rem; }
+    .title {
+      font-size: clamp(28px, 4.8vw, 56px); line-height: 1.05; margin: .2rem 0 1rem;
+      display: inline-flex; gap: .5ch; align-items: center; flex-wrap: wrap;
+    }
+    .title .bouncer { display: inline-block; animation: naikTurun 2.3s ease-in-out infinite; }
+    .title .bouncer:nth-child(2) { animation-delay: .12s; }
+    .title .bouncer:nth-child(3) { animation-delay: .24s; }
+    .title .bouncer:nth-child(4) { animation-delay: .36s; }
+    .title .bouncer:nth-child(5) { animation-delay: .48s; }
+    @keyframes naikTurun { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+    .lead { font-size: clamp(16px, 1.4vw, 18px); opacity: .9; margin-bottom: 1rem; }
+
+    .pulse-heart {
+      display:inline-block; width: 18px; height: 18px; position: relative; margin-left: 6px; transform: translateY(2px);
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+    .pulse-heart::before, .pulse-heart::after {
+      content:""; position:absolute; width: 10px; height: 16px; background:#ff3163; border-radius:10px 10px 0 0; top:4px;
+    }
+    .pulse-heart::before { left:2px; transform: rotate(-45deg); transform-origin: bottom right; }
+    .pulse-heart::after { left:6px; transform: rotate(45deg); transform-origin: bottom left; }
+    @keyframes pulse { 0%,100%{ transform: scale(1) translateY(2px);} 50%{ transform: scale(1.15) translateY(2px);} }
+
+    footer { text-align:center; color: var(--ink-soft); font-size:.9rem; padding: 20px 12px 28px; }
+  </style>
+</head>
+<body>
+  <div class="hearts" aria-hidden="true" id="bgHearts"></div>
+  <main class="wrap">
+    <section class="card">
+      <div class="photo-area">
+        <div class="photo frame">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Foto bertema hati">
+            <defs>
+              <clipPath id="heartClipBox" clipPathUnits="userSpaceOnUse">
+                <path d="M50 92 C 20 70, 4 54, 4 34 C 4 18, 17 8, 31 8 C 40 8, 47 12, 50 18 C 53 12, 60 8, 69 8 C 83 8, 96 18, 96 34 C 96 54, 80 70, 50 92 Z" />
+              </clipPath>
+            </defs>
+            <!-- Ganti URL foto di bawah ini -->
+            <image id="heartImage" xlink:href="sayang.jpg" x="0" y="0" width="100" height="100" preserveAspectRatio="xMidYMid slice" clip-path="url(#heartClipBox)" />
+            <path d="M50 92 C 20 70, 4 54, 4 34 C 4 18, 17 8, 31 8 C 40 8, 47 12, 50 18 C 53 12, 60 8, 69 8 C 83 8, 96 18, 96 34 C 96 54, 80 70, 50 92 Z" fill="none" stroke="#ff3163" stroke-width="1.8" />
+          </svg>
+        </div>
+      </div>
+      <div class="content">
+        <div class="kicker"></div>
+        <h1 class="title">
+          <span class="bouncer">I</span>
+          <span class="bouncer">Love</span>
+          <span class="bouncer">You</span>
+          <span class="bouncer">Sayang</span>
+          <span class="bouncer">❤️</span>
+          <span class="bouncer">❤️</span>
+          <span class="bouncer">❤️</span>
+          <span class="bouncer">❤️</span>
+          <span class="bouncer">❤️</span>
+        </h1>
+        <p class="lead">Maaf ya sayang udah bikin sayang marah marah bikin sayang kesel sama aku dan bikin sayang sakit hati maaf ya sayang❤️,  “I Love You Sayang❤️”.</p>
+      </div>
+    </section>
+  </main>
+  <footer> ❤  I Love You.</footer>
+  <script>
+    const container = document.getElementById('bgHearts');
+    const HEART_COUNT = 20;
+    const rand = (min, max) => Math.random() * (max - min) + min;
+    for (let i = 0; i < HEART_COUNT; i++) {
+      const h = document.createElement('div');
+      h.className = 'heart';
+      const size = rand(10, 26);
+      h.style.width = size + 'px';
+      h.style.height = size + 'px';
+      h.style.left = rand(-5, 100) + 'vw';
+      h.style.bottom = rand(-10, 20) + 'vh';
+      h.style.animationDuration = rand(10, 28) + 's';
+      h.style.animationDelay = rand(-18, 0) + 's';
+      container.appendChild(h);
+    }
+  </script>
+</body>
+</html>
